@@ -1,0 +1,78 @@
+{% extends 'start_base.html' %}
+{% block title %}Register{% endblock %}
+{% load static %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous" ></script>
+
+{% block content %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<link rel="stylesheet" href="{% static 'footer.css' %}">
+<link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
+
+
+<section class="section-content padding-y">
+
+<!-- ============================ COMPONENT REGISTER   ================================= -->
+	<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+      <article class="card-body">
+    {% include 'includes/messages.html' %}
+		<form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+
+      <body class="text-center">
+    
+        <main class="form-signin">
+              <h1 class="h2 mb-3 font-weight-bold">Todo</h1>
+            <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+            <div class="form-floating">
+              <input name="firstname" type="text" class="form-control mb-3" id="floatingPassword" placeholder="First Name" required>
+              <label for="floatingPassword">First Name</label>
+            </div>
+
+            <div class="form-floating">
+              <input name="lastname" type="text" class="form-control mb-3" id="floatingPassword" placeholder="Last Name" required>
+              <label for="floatingPassword">Last Name</label>
+            </div>
+
+        
+            <div class="form-floating">
+              <input name="username" type="text" class="form-control mb-3" id="floatingPassword" placeholder="User Name" required>
+              <label for="floatingPassword">User Name</label>
+            </div>
+
+            <div class="form-floating">
+              <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input name="password" type="password" class="form-control mt-3" id="floatingPassword" placeholder="Password" required>
+              <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating">
+              <input name="confirm_password" type="password" class="form-control mt-3" id="floatingPassword" placeholder="Confirm Password" required>
+              <label for="floatingPassword">Confirm Password</label>
+            </div>
+
+
+        
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </main>
+
+
+
+			</form>
+		</article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    <p class="text-center mt-4">Have an account? <a href="{% url 'login' %}">Log In</a></p>
+    <br><br>
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+</section>
+
+{% endblock %}
